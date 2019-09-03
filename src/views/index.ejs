@@ -5,17 +5,27 @@
     <title>Books</title>
 </head>
 <body>
-    <div class="container">
+        <% include partials/navegation %>
+    <div class="container p-4">
         <div class="row">
-            <div class="card">
-                <div class="card-body">
-                    <p>
-                        hola Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi culpa facilis 
-                        tempora! Harum nisi a consectetur ab quia enim cupiditate ipsam, itaque blanditiis 
-                        ipsum, odio iusto facilis adipisci, aspernatur quasi.</p>
+            <% books.forEach( function (book) { %>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <p><%= book.title %> / <%= book.author %></p>
+                        </div>
+                        <img src="<%= book.image %>" class="card-img-top">
+                        <div class="card-body">
+                            <p><%= book.description %></p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/delete/<%= book.id %>" class="btn btn-danger"> Delete</a>
+                        </div>
+                    </div>    
                 </div>
-            </div>
+            <%  }) %>
         </div>
+
     </div>
 </body>
 </html>
