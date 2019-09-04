@@ -37,6 +37,7 @@ router.post('/new-entry', (req, res ) =>{
 
     res.redirect('/')
 })
+
 router.get('/delete/:id', (req, res ) =>{
     console.log(req.params);
 
@@ -46,5 +47,8 @@ router.get('/delete/:id', (req, res ) =>{
     fs.writeFileSync('./src/book.json', json_books, 'utf-8');
 
     res.redirect('/')
+})
+router.get('/vire-json', (req, res) =>{
+    res.send(books);
 })
 module.exports = router;
