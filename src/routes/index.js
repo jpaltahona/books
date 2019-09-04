@@ -18,8 +18,8 @@ router.get('/new-entry', (req, res) => {
     res.render('new-entry.ejs');
 })
 router.post('/new-entry', (req, res ) =>{
-    const { title, author, image, description } = req.body;
-    if(!title || !author || !image || !description ){
+    const { title, fecha, image, description } = req.body;
+    if(!title || !fecha || !image || !description ){
         res.status(400).send('Entries must a title and description')
         return
     }
@@ -27,7 +27,7 @@ router.post('/new-entry', (req, res ) =>{
     let newBook = {
         id: uuid(),
         title,
-        author,
+        fecha,
         image, description
     }
     books.push(newBook);
